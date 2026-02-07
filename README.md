@@ -24,7 +24,7 @@ Screenshots are in the **`Application_Screens/`** folder. The flow is:
 
 Before starting, you **create a project**: enter the **author name**, **material**, **notes**, and other metadata, then create the project. This sets the context for the whole build.
 
-<img src="Application_Screens/1-Create_page.jpg" alt="Create project" width="200">
+<img src="Application_Screens/1-Create_page.jpg" alt="Create project" width="320">
 
 ---
 
