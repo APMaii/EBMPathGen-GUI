@@ -715,30 +715,31 @@ class Core_OBF_Generator:
 
 
     def object_detection_limit(self,one_layer):
+        
         """Detect bounding squares for contours in one layer slice; return optimized list of (center_x, center_y, side_length)."""
-         squares=[]
+        squares=[]
+       
+        contours = one_layer.split_bodies()
         
-         contours = one_layer.split_bodies()
-         
-         for contour in contours:
-             # Get only x and y coordinates
-             points = contour.points[:, :2]
-             
-             # Calculate bounds
-             min_x, max_x = np.min(points[:, 0]), np.max(points[:, 0])
-             min_y, max_y = np.min(points[:, 1]), np.max(points[:, 1])
-             
-             # Calculate square parameters
-             side_length = max(max_x - min_x, max_y - min_y)
-             center_x = (min_x + max_x) / 2
-             center_y = (min_y + max_y) / 2
-             
-             squares.append((center_x, center_y, side_length))
-             
-         pm_processor=Core_Mesh_Processor()
-         optimized_square=pm_processor.optimize_squares(squares, 20)
-        
-         return optimized_square
+        for contour in contours:
+            # Get only x and y coordinates
+            points = contour.points[:, :2]
+            
+            # Calculate bounds
+            min_x, max_x = np.min(points[:, 0]), np.max(points[:, 0])
+            min_y, max_y = np.min(points[:, 1]), np.max(points[:, 1])
+            
+            # Calculate square parameters
+            side_length = max(max_x - min_x, max_y - min_y)
+            center_x = (min_x + max_x) / 2
+            center_y = (min_y + max_y) / 2
+            
+            squares.append((center_x, center_y, side_length))
+            
+        pm_processor=Core_Mesh_Processor()
+        optimized_square=pm_processor.optimize_squares(squares, 20)
+       
+        return optimized_square
 
              
 

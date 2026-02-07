@@ -8,6 +8,7 @@ from pyvistaqt import QtInteractor
 from PM_EBM_CORE import Core_Mesh_Processor
 
 from .constants import next_button_styles
+import trimesh
 
 class AdvancedWindow_layers(QWidget):
     """Advanced parameterization window: layer list, per-layer parameters form, and 3D slice preview."""
