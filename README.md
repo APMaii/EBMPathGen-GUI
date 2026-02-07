@@ -20,32 +20,31 @@ The workflow is designed so that anyone who needs to go from STL directly into m
 
 Screenshots are in the **`Application_Screens/`** folder. The flow is:
 
-### 1. Create project — `1-Create_page.png`
+### 1. Create project 
 
 Before starting, you **create a project**: enter the **author name**, **material**, **notes**, and other metadata, then create the project. This sets the context for the whole build.
 
-<img src="Application_Screens/1-Create_page.png" alt="Create project" width="200">
+<img src="Application_Screens/1-Create_page.jpg" alt="Create project" width="200">
 
 ---
 
-### 2. Build volume (box) — `2-box_page.png`
+### 2. Build volume (box) 
 
 The **box** represents the **substrate / build volume** of your experiment. Default dimensions are provided (e.g. from the machine/company); you can **adjust** them as needed for your run.
 
-![Box / substrate](Application_Screens/2-box_page.png)
+![Box / substrate](Application_Screens/2-box_page.jpg)
 
 ---
 
-### 3. Initial heat (start heat) — `3-initial_heat.png`
+### 3. Initial heat (start heat)
 
 Here you define the **initial heating pattern** (e.g. **snake**), the **radius** of the heated area, and all related **EBM parameters** (beam energy, dwell time, spread algorithm, etc.). This is the preheating of the substrate before the main build.
 
-![Initial heat](Application_Screens/3-initial_heat.png)
+![Initial heat](Application_Screens/3-initial_heat.jpg)
 
 ---
 
-### 4. Geometry — `4-Geometry.png`
-
+### 4. Geometry 
 On the **Geometry** page you can:
 
 - **Import your STL** file, or  
@@ -53,11 +52,11 @@ On the **Geometry** page you can:
 
 Then you can **move** the part in X and Y, **scale** it, **rotate** it (RX, RY, RZ), create **multiple copies** with spacing, and **apply transformation**. When you are satisfied, you save the transformed STL and proceed to slicing.
 
-![Geometry](Application_Screens/4-Geometry.png)
+![Geometry](Application_Screens/4-Geometry.jpg)
 
 ---
 
-### 5. Slicing — `5-slicing.png`
+### 5. Slicing 
 
 In **Slicing** you choose how to define layer thickness:
 
@@ -66,47 +65,47 @@ In **Slicing** you choose how to define layer thickness:
 
 You then **Slice** the model, **Analyze** the result (to check that layers and contours are correct), and **Finalize** the slicing. This step is similar in concept to many dedicated slicing tools: it produces the layer contours that will later be hatched.
 
-![Slicing](Application_Screens/5-slicing.png)
+![Slicing](Application_Screens/5-slicing.jpg)
 
 ---
 
-### 6. Preheating (jump-safe) — `6-preheat.png`
+### 6. Preheating (jump-safe) 
 
 **Preheating** (per layer or per region) uses **pixel** or **line** algorithms. You can enable options like **Pro jump**, **preview** the pattern, and then **Apply** the settings. This defines how the beam preheats each layer or region before hatching.
 
-![Preheat](Application_Screens/6-preheat.png)
+![Preheat](Application_Screens/6-preheat.jpg)
 
 ---
 
-### 7. Hatching — `7-hatching.png`
+### 7. Hatching
 
 **Hatching** is the **electron path** for the actual melting: you set **angle**, **spacing**, **speed**, and other parameters. You **generate** the hatch, **analyze** it, and **finalize** hatching. This produces the paths that the machine will follow to melt the material layer by layer.
 
-![Hatching](Application_Screens/7-hatching.png)
+![Hatching](Application_Screens/7-hatching.jpg)
 
 ---
 
-### 8. Post-cooling — `8-post_cooling.png`
+### 8. Post-cooling 
 
 **Post-cooling** defines the cooling pattern after each layer (or at the end). You configure shape, algorithm, jump length, dwell time, etc., and apply it. This completes the thermal strategy for the build.
 
-![Post-cooling](Application_Screens/8-post_cooling.png)
+![Post-cooling](Application_Screens/8-post_cooling.jpg)
 
 ---
 
-### 9. Advanced settings — `9-advanced.png`
+### 9. Advanced settings
 
 **Advanced** options (e.g. layer- or object-level parametrization) are available here. Further extensions are planned for future versions.
 
-![Advanced](Application_Screens/9-advanced.png)
+![Advanced](Application_Screens/9-advanced.jpg)
 
 ---
 
-### 10. Output — `10-Output_files.png`
+### 10. Output 
 
 Finally, you get the **output files**. At present the software produces **OBF** (and related) files for **Freemelt** machines. Loading the `.obf` into the machine allows it to run the generated path and perform additive manufacturing. Support for other machine formats may be added in the future.
 
-![Output](Application_Screens/10-Output_files.png)
+![Output](Application_Screens/10-Output_files.jpg)
 
 ---
 
