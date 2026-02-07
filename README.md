@@ -132,6 +132,8 @@ The **`pm_ebm`** CLI does not create environments; use your own (conda, venv, or
 
 ---
 
+---
+
 ## Requirements
 
 - **Git** (to clone the repository)
