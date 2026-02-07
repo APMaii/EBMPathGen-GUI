@@ -1,0 +1,26 @@
+# =============================================================================
+# EBMPathGen-GUI — Python dependencies
+# =============================================================================
+# Versions pinned to match conda environment "EBM".
+# Install:  pip install -r requirements.txt
+#
+# Python: 3.8+ recommended
+# =============================================================================
+
+# --- GUI & plotting (ebm_pathgen_gui, main_window, dialogs, advanced_windows) ---
+PyQt5==5.15.10
+pyvistaqt==0.11.1
+matplotlib==3.9.2
+
+# --- Scientific / mesh / geometry (PM_EBM_CORE, ebm_pathgen_gui) ---
+numpy==2.1.3
+scipy==1.15.0
+pyvista==0.44.2
+trimesh==4.5.3
+shapely==2.0.6
+
+# --- Export / formats ---
+svgwrite==1.4.3
+
+# --- EBM / OBP beam path library ---
+obplib==3.0.5

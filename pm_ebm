@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+# pm_ebm — CLI for EBM PathGen GUI
+# Usage: pm_ebm [command]
+# Run from project root, or add project root to PATH to call from anywhere.
+
+set -e
+# Resolve symlinks so we find the real project root when pm_ebm is run from PATH (e.g. /usr/local/bin/pm_ebm)
+SCRIPT_PATH="${BASH_SOURCE[0]}"
+while [[ -L "$SCRIPT_PATH" ]]; do
+  DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
+  SCRIPT_PATH="$(readlink "$SCRIPT_PATH")"
+  [[ "$SCRIPT_PATH" != /* ]] && SCRIPT_PATH="$DIR/$SCRIPT_PATH"
+done
+PROJECT_ROOT="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
+SCRIPTS_DIR="$PROJECT_ROOT/scripts"
+
+show_commands() {
+  echo "pm_ebm — EBM PathGen GUI"
+  echo ""
+  echo "Usage: pm_ebm <command>"
+  echo ""
+  echo "Commands:"
+  echo "  (none)     Show this help"
+  echo "  ls         Show this help"
+  echo "  setup      Install dependencies into current environment (pip install -r requirements.txt)"
+  echo "  install    Same as setup"
+  echo "  run        Start the GUI app (uses current environment)"
+  echo "  play       Same as run"
+  echo "  go         Same as run"
+  echo "  link       Put pm_ebm on PATH (run once so you can use 'pm_ebm' from anywhere)"
+  echo ""
+}
+
+cmd="${1:-}"
+case "$cmd" in
+  ""|ls)
+    show_commands
+    ;;
+  setup|install)
+    "$SCRIPTS_DIR/setup.sh"
+    ;;
+  run|play|go)
+    "$SCRIPTS_DIR/run.sh"
+    ;;
+  link)
+    TARGET="$PROJECT_ROOT/pm_ebm"
+    BIN_DIR="/usr/local/bin"
+    if [[ -w "$BIN_DIR" ]]; then
+      ln -sf "$TARGET" "$BIN_DIR/pm_ebm"
+      echo "Done. You can now run 'pm_ebm' from any directory."
+    else
+      echo "Linking into $BIN_DIR (may ask for password):"
+      sudo ln -sf "$TARGET" "$BIN_DIR/pm_ebm"
+      echo "Done. You can now run 'pm_ebm' from any directory."
+    fi
+    ;;
+  *)
+    echo "pm_ebm: unknown command '$cmd'"
+    echo ""
+    show_commands
+    exit 1
+    ;;
+esac
