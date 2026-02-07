@@ -114,15 +114,21 @@ Finally, you get the **output files**. At present the software produces **OBF** 
 Create or activate your own Python environment, then:
 
 ```bash
-git clone <repo-url> EBMPathGen-GUI && cd EBMPathGen-GUI
+git clone https://github.com/APMaii/EBMPathGen-GUI.git && cd EBMPathGen-GUI
 ./pm_ebm install    # install dependencies into current env
 ./pm_ebm run        # start the app
 ```
 
-The **`pm_ebm`** CLI does not create environments; use your own (conda, venv, or system).  
-- `./pm_ebm install` — runs `pip install -r requirements.txt`  
-- `./pm_ebm run` — starts the application  
-- `./pm_ebm` or `./pm_ebm ls` — list commands  
+Optionally, from the project root run **`./pm_ebm link`** once; then you can use **`pm_ebm`** directly from any directory (e.g. `pm_ebm run`).
+
+The **`pm_ebm`** CLI does not create environments; use your own (conda, venv, or system).
+
+| Command | Description |
+|---------|--------------|
+| `./pm_ebm install` | Install dependencies (`pip install -r requirements.txt`) |
+| `./pm_ebm run` | Start the application |
+| `./pm_ebm link` | Link `pm_ebm` so you can run `pm_ebm` from anywhere |
+| `./pm_ebm` or `./pm_ebm ls` | List available commands |  
 
 ---
 
